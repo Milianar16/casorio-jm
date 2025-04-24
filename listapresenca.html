@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Presença</title>
+    <link rel="stylesheet" href="./assets/css/presenca.css">
+</head>
+<body>
+    <section class="confirmation">
+        <div class="container">
+            <h1>Confirme sua Presença!</h1>
+            <p>Por favor, preencha os dados abaixo para confirmar sua presença na festa.</p>
+
+            <article id="contact">
+                <h2 class="major">Confirme sua Presença</h2>
+                <form id="confirmationForm">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" name="from_name" placeholder="Seu nome completo" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="reply_to" placeholder="Seu e-mail" required>
+
+                    <label for="attendance">Você irá comparecer?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+
+                 
+
+                    <button type="submit">Confirmar Presença</button>
+                </form>
+
+                <div id="confirmationMessage"></div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SDK EmailJS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Inicializa o EmailJS
+        (function() {
+            emailjs.init("7UwqTZRb-t0oIBkNF"); // Substitua com seu User ID
+        })();
+
+        document.getElementById("confirmationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm("service_d922608", "template_y743gnx", this)
+                .then(function() {
+                    document.getElementById("confirmationMessage").innerText = "Sua presença foi confirmada com sucesso! 🎉";
+                    document.getElementById("confirmationForm").reset();
+                }, function(error) {
+                    document.getElementById("confirmationMessage").innerText = "Erro ao enviar confirmação. 😥";
+                    console.error("Erro:", error);
+                });
+        });
+    </script>
+</body>
+</html>
