@@ -54,17 +54,27 @@
   </style>
 </head>
 <body>
+
+  <iframe src="player.html" allow="autoplay" style="display:none;"></iframe>
   <div class="container">
     <h2>Presente via Pix</h2>
     <p>Clique no botão abaixo para abrir a página de pagamento. Após finalizar o Pix, volte aqui e clique em "Voltar para o início".</p>
 
-    <a href="https://nubank.com.br/cobrar/5om8q/680a4d43-6b71-4c87-8a88-6e80a4b9ba0f"
+    <a href="https://nubank.com.br/cobrar/5om8q/680bef9f-dad5-4732-9eda-fc97531ee9ca"
     target="_blank"
        class="button special">
       Ir para o pagamento
     </a>
 
-
+    
+    <script>
+      // Garante que só abra 1 vez
+      if (!window.playerWindow || window.playerWindow.closed) {
+        window.playerWindow = window.open("player.html", "playerMusica", "width=300,height=100");
+      }
+    </script>
+    
+    
 
     <a href="./index.html" class="button secondary">Voltar para o início</a>
   </div>

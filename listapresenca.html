@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmação de Presença</title>
     <link rel="stylesheet" href="./assets/css/presenca.css">
+    
 </head>
 <body>
+   
+    <iframe src="player.html" allow="autoplay" style="display:none;"></iframe>
     <section class="confirmation">
         <div class="container">
             <h1>Confirme sua Presença!</h1>
@@ -30,6 +33,7 @@
                  
 
                     <button type="submit">Confirmar Presença</button>
+                    
                 </form>
 
                 <div id="confirmationMessage"></div>
@@ -61,6 +65,13 @@
                     console.error("Erro:", error);
                 });
         });
+
+            // Garante que só abra 1 vez
+            if (!window.playerWindow || window.playerWindow.closed) {
+            window.playerWindow = window.open("player.html", "playerMusica", "width=300,height=100");
+        }
+
+
     </script>
 
 </body>
