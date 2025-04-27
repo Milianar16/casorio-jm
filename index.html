@@ -39,14 +39,69 @@
 <body onLoad="updateCounter()">
   
     <body>
-        <audio id="audioPlayer" loop>
-            <source src="assets/audio/tiago-iorc-amei-te-ver.mp3" type="audio/mpeg">
-        </audio>
+        
+        <style>
+            /* Estilo do botão de play */
+            #startButtonContainer {
+                position:relative;
+                bottom: 20px;
+                left: 20px;
+                z-index: 9999;
+            }
     
-     
-            <button style="position:relative; bottom: 20px; left: 20px; z-index: 9999; border-radius: 20px;" onclick="document.getElementById('audioPlayer').play()">
-                ▶️ Música
-            </button>
+            #startButtonContainer button {
+                padding: 12px 24px;
+                font-size: 18px;
+                background-color: rgba(0,0,0,0.3);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+                transition: background-color 0.3s, transform 0.2s;
+            }
+    
+            #startButtonContainer button:hover {
+                background-color: #d37704;
+                transform: scale(1.05);
+            }
+    
+            /* Estilo do player de áudio */
+            #audioPlayer {
+                position: relative;
+                bottom: 30px;
+                left: 20px;
+                width: 100px;
+                outline: none;
+                border: 2px solid rgba(0,0,0,0.3);
+                border-radius: 10px;
+                box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+                background: white;
+                padding: 5px;
+            }
+        </style>
+         <!-- Áudio -->
+    <audio id="audioPlayer" loop controls style="display: none;">
+        <source src="assets/audio/tiago-iorc-amei-te-ver.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <!-- Botão de Iniciar Música -->
+    <div id="startButtonContainer">
+        <button onclick="startMusic()">🎵 Tocar música</button>
+    </div>
+
+    <!-- Script para controlar -->
+    <script>
+        function startMusic() {
+            var audio = document.getElementById('audioPlayer');
+            var buttonContainer = document.getElementById('startButtonContainer');
+
+            audio.style.display = 'block'; // Mostra o player de áudio
+            audio.play();                  // Toca a música
+            buttonContainer.style.display = 'none'; // Some com o botão
+        }
+    </script>
         
     </body>
     
