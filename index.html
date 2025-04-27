@@ -38,12 +38,18 @@
 
 <body onLoad="updateCounter()">
   
-    <audio autoplay loop>
-        <source src="./assets/audio/tiago-iorc-amei-te-ver.mp3" type="audio/mpeg">
-    </audio>
+    <body>
+        <audio id="audioPlayer" loop>
+            <source src="assets/audio/tiago-iorc-amei-te-ver.mp3" type="audio/mpeg">
+        </audio>
     
-      
-      <button onclick="document.getElementById('audioPlayer').play()">Tocar Música</button>
+     
+            <button style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; border-radius: 20px;" onclick="document.getElementById('audioPlayer').play()">
+                ▶️ Música
+            </button>
+        
+    </body>
+    
      
 
     <!-- Wrapper -->
@@ -202,7 +208,7 @@
                         <table>
                             <tbody style="font-size: 1.4rem;">
                                 <tr>
-                                    <td>Confirme sua presença</td>
+                                    <td>Confirme a presença</td>
                                     <td class="actions">
                                         <a style="background: #e78805; color: #FFF !important"
                                                 href="listapresenca.html"
