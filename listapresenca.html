@@ -9,7 +9,7 @@
 </head>
 <body>
    
-    <!--<iframe src="player.html" allow="autoplay" style="display:none;"></iframe>-->
+    
     <section class="confirmation">
         <div class="container">
             <h1>Confirme sua Presença!</h1>
@@ -65,12 +65,6 @@
                     console.error("Erro:", error);
                 });
         });
-
-            // Garante que só abra 1 vez
-            if (!window.playerWindow || window.playerWindow.closed) {
-            window.playerWindow = window.open("player.html", "playerMusica", "width=300,height=100");
-        }
-
 
     </script>
 
